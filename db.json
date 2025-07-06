@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "name": "Anowar Ibrahim",
+      "id": "1"
+    },
+    {
+      "name": "Mahathir Mohammad",
+      "id": "2"
+    }
+  ],
+  "sales": [
+    {
+      "customerName": "Anowar Hosen",
+      "description": "old dhaka",
+      "date": "Thu Jul 03 2025 12:54:43 GMT+0800 (Singapore Standard Time)",
+      "saleId": "1",
+      "id": "2688"
+    },
+    {
+      "customerName": "Yamin M",
+      "description": "Khulna",
+      "date": "Thu Jul 03 2025 15:03:41 GMT+0800 (Singapore Standard Time)",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "id": "55cb"
+    }
+  ],
+  "saleDetails": [
+    {
+      "id": "47dd",
+      "saleDetailId": "5",
+      "saleId": "1",
+      "quantity": "5",
+      "unitPrice": "1",
+      "particular": "Burger",
+      "totalPrice": 5
+    },
+    {
+      "id": "bf3f",
+      "saleDetailId": "908afde2-2d2f-42f8-9d26-b6047c39a192",
+      "saleId": "1",
+      "quantity": "1",
+      "unitPrice": "3",
+      "particular": "Water Melon",
+      "totalPrice": 3
+    },
+    {
+      "id": "f1be",
+      "saleDetailId": "a21f2ea9-ad07-4e79-9796-041080c0d810",
+      "saleId": "1",
+      "quantity": "2",
+      "unitPrice": "6",
+      "particular": "Sup",
+      "totalPrice": 12
+    },
+    {
+      "id": "1b1b",
+      "saleDetailId": "053dd99e-ac59-4477-98bd-33a69002e5e9",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "quantity": "2",
+      "unitPrice": "0.5",
+      "particular": "Water",
+      "totalPrice": 1
+    },
+    {
+      "id": "f124",
+      "saleDetailId": "95d647b8-fdfa-4f83-b7ea-d3a46a3abc7a",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "quantity": "2",
+      "unitPrice": "1.2",
+      "particular": "Roti",
+      "totalPrice": 2.4
+    },
+    {
+      "id": "6773",
+      "saleDetailId": "6755aadb-d1fe-49ed-9217-d9836b412218",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "quantity": "2",
+      "unitPrice": "2.5",
+      "particular": "Chicken Stack",
+      "totalPrice": 5
+    },
+    {
+      "id": "b76d",
+      "saleDetailId": "d9244fdb-e0f9-49ae-a0c9-02f1c21f7e5e",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "quantity": "1",
+      "unitPrice": "2",
+      "particular": "French Fri",
+      "totalPrice": 2
+    },
+    {
+      "id": "0016",
+      "saleDetailId": "f26032f4-8147-4c8e-a98a-c4f3625c7e56",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "quantity": "2",
+      "unitPrice": "8",
+      "particular": "Beef",
+      "totalPrice": 16
+    },
+    {
+      "id": "63e4",
+      "saleDetailId": "0ef5d2ab-25a2-420b-8dce-09cd746a9e3f",
+      "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
+      "quantity": "2",
+      "unitPrice": "2",
+      "particular": "Rice",
+      "totalPrice": 4
+    }
+  ]
+}
