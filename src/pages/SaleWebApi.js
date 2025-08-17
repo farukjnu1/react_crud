@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const sales_URL = 'http://localhost:5000/sales';
-const saleDetails_URL = 'http://localhost:5000/saleDetails';
+const sales_URL = 'http://localhost:5242/api/sales';
+const saleDetails_URL = 'http://localhost:5242/api/saleDetails';
 
-function Sale() {
+function SaleWebApi() {
   const [sales, setSales] = useState([]);
   const [saleDetails, setSaleDetails] = useState([]);
 
@@ -40,8 +40,8 @@ function Sale() {
       console.log('customerName is required.');
       return;
     } else {
-      saleId = generateGUID();
-      date = new Date().toString();
+      saleId = 0;
+      date = new Date().toISOString();
       axios.post(sales_URL, { saleId, customerName, date, description }).then((res) => {
         setSales([...sales, res.data]);
         let id = res.data.id;
@@ -55,13 +55,13 @@ function Sale() {
 
   // Update
   const updateSale = () => {
-    date = new Date().toString();
+    date = new Date().toISOString();
     if(!editingSale.saleId){
       alert('saleId is required.');
       return;
     } else {
       saleId = editingSale.saleId;
-      axios.put(`${sales_URL}/${editingSale.id}`, { customerName, description, date, saleId }).then((res) => {
+      axios.put(`${sales_URL}/${editingSale.saleId}`, { customerName, description, date, saleId }).then((res) => {
         setSales(sales.map((u) => (u.id === res.data.id ? res.data : u)));
         console.log('saved changes.');
         //setEditingSale(null);
@@ -81,7 +81,7 @@ function Sale() {
   // Delete
   const deleteSaleDetail = (id) => {
     axios.delete(`${saleDetails_URL}/${id}`).then(() => {
-      setSaleDetails(saleDetails.filter((u) => u.id !== id));
+      setSaleDetails(saleDetails.filter((u) => u.saleDetailId !== id));
     });
   };
 
@@ -97,11 +97,12 @@ function Sale() {
       alert('All fields are required.');
       return;
     } else {
-      saleDetailId = generateGUID();
+      saleDetailId = 0;//generateGUID();
       totalPrice = quantity * unitPrice;
       saleId = editingSale.saleId;
       axios.post(saleDetails_URL, { saleDetailId , saleId, quantity, unitPrice, particular, totalPrice }).then((res) => {
-        setSaleDetails([...saleDetails, res.data]);
+        //setSaleDetails([...saleDetails, res.data]);
+        axios.get(saleDetails_URL + '/'+saleId).then((res) => setSaleDetails(res.data)); 
         setParticular('');
         setUnitPrice('');
         setQuantity('');
@@ -111,14 +112,12 @@ function Sale() {
         saleDetailId = '';
       });
     }
-
-    axios.get(saleDetails_URL + '?saleId='+saleId).then((res) => setSaleDetails(res.data)); 
   };
 
   const getBySaleDetail = (id) => {
     saleId = id;
     //console.log(saleId);
-    axios.get(saleDetails_URL + '?saleId='+saleId).then((res) => setSaleDetails(res.data)); 
+    axios.get(saleDetails_URL + '/'+saleId).then((res) => setSaleDetails(res.data)); 
   };
 
   const calculatePrice = () =>{
@@ -145,7 +144,7 @@ function Sale() {
         {isForm ? 'Go to' : 'New'} Sales
       </a>
       <br />
-      <h4 className="text-primary">JSON Server</h4>
+      <h4 className="text-primary">Web API</h4>
       {/* Show/hide div based on state */}
 
       {isForm && (
@@ -230,13 +229,13 @@ function Sale() {
               </td>
             </tr>
             {saleDetails.map((u) => (
-              <tr key={u.id}>
+              <tr key={u.saleDetailId}>
                 <td>{u.unitPrice}</td>
                 <td>{u.quantity}</td>
                 <td>{u.totalPrice}</td>
                 <td>{u.particular}</td>
                 <td>
-                  <button onClick={() => deleteSaleDetail(u.id)}>Delete</button>
+                  <button onClick={() => deleteSaleDetail(u.saleDetailId)}>Delete</button>
                 </td>
               </tr>
             ))}
@@ -260,7 +259,7 @@ function Sale() {
             </thead>
             <tbody>
               {sales.map((u) => (
-              <tr key={u.id}>
+              <tr key={u.saleId}>
                 <td>{u.customerName}</td>
                 <td>{u.date}</td>
                 <td>
@@ -273,7 +272,7 @@ function Sale() {
                   }} className='btn btn-success'>Edit</button>
                 </td>
                 <td>
-                  <button onClick={() => deleteSale(u.id)} className='btn btn-danger'>Delete</button>
+                  <button onClick={() => deleteSale(u.saleId)} className='btn btn-danger'>Delete</button>
                 </td>
               </tr>
             ))}
@@ -286,4 +285,4 @@ function Sale() {
   );
 }
 
-export default Sale;
+export default SaleWebApi;

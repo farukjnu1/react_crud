@@ -41,14 +41,13 @@ function Crud() {
 
   return (
     <div style={{ padding: '10px' }}>
-      <h2 className="text-primary">CRUD</h2>
+      <h2 className="text-primary">CRUD to JSON Server</h2>
       <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
         <input
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Enter name" className='form-control' id='name' aria-describedby="name"
-      />
+        placeholder="Enter name" className='form-control' id='name' aria-describedby="name" />
         <small id="name" class="form-text text-muted">We can share your name with anyone.</small>
       </div>
       <button onClick={editingUser ? updateUser : addUser} className={editingUser ? "btn btn-secondary" : "btn btn-primary"}>

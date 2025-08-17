@@ -5,6 +5,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Crud from './pages/Crud';
 import Sale from './pages/Sale';
+import SaleWebApi from './pages/SaleWebApi';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Link to="/about">About</Link> |{' '}
         <Link to="/contact">Contact</Link> |{' '}
         <Link to="/crud">CRUD</Link> |{' '}
-        <Link to="/sale">Sale</Link>
+        <Link to="/sale">Sale (JSON Server)</Link>|{' '}
+        <Link to="/SaleWebApi">Sale (Web API)</Link>
       </nav>
 
       <Routes>
@@ -23,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/crud" element={<Crud />} />
         <Route path="/sale" element={<Sale />} />
+        <Route path="/SaleWebApi" element={<SaleWebApi />} />
         <Route path="*" element={<h2>404 - Page Not Found</h2>} />
       </Routes>
     </Router>
