@@ -41,28 +41,45 @@ function Crud() {
 
   return (
     <div style={{ padding: '10px' }}>
-      <h2>CRUD</h2>
-      <input
+      <h2 className="text-primary">CRUD</h2>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Enter name"
+        placeholder="Enter name" className='form-control' id='name' aria-describedby="name"
       />
-      <button onClick={editingUser ? updateUser : addUser}>
+        <small id="name" class="form-text text-muted">We can share your name with anyone.</small>
+      </div>
+      <button onClick={editingUser ? updateUser : addUser} className={editingUser ? "btn btn-secondary" : "btn btn-primary"}>
         {editingUser ? 'Update' : 'Add'}
       </button>
 
-      <ul>
-        {users.map((u) => (
-          <li key={u.id}>
-            {u.name}
-            <button onClick={() => {
+      <table className='table table-bordered'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>#</th>
+            <th>#</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((u) => (
+          <tr key={u.id}>
+            <td>{u.name}</td>
+            <td>
+              <button onClick={() => {
               setEditingUser(u);
               setName(u.name);
-            }}>Edit</button>
-            <button onClick={() => deleteUser(u.id)}>Delete</button>
-          </li>
+              }} className="btn btn-success">Edit</button>
+            </td>
+            <td>
+              <button onClick={() => deleteUser(u.id)} className="btn btn-danger">Delete</button>
+            </td>
+          </tr>
         ))}
-      </ul>
+        </tbody>
+      </table>
     </div>
   );
 }

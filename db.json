@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "name": "Anowar Ibrahim",
+      "name": "Anowar",
       "id": "1"
     },
     {
-      "name": "Mahathir Mohammad",
+      "name": "Mahathir",
       "id": "2"
     }
   ],
@@ -23,6 +23,13 @@
       "date": "Thu Jul 03 2025 15:03:41 GMT+0800 (Singapore Standard Time)",
       "saleId": "a9630d9f-7d2d-406f-a126-aa6b3a4ed619",
       "id": "55cb"
+    },
+    {
+      "customerName": "Mahbubu",
+      "description": "Comilla",
+      "date": "Mon Jul 07 2025 15:05:51 GMT+0800 (Singapore Standard Time)",
+      "saleId": "ce2b6787-e5fb-4169-a803-d890accf5e95",
+      "id": "39f5"
     }
   ],
   "saleDetails": [
@@ -106,6 +113,15 @@
       "unitPrice": "2",
       "particular": "Rice",
       "totalPrice": 4
+    },
+    {
+      "id": "1ad6",
+      "saleDetailId": "7d9db5ad-c869-447c-8c5c-07406c55087f",
+      "saleId": "ce2b6787-e5fb-4169-a803-d890accf5e95",
+      "quantity": "2",
+      "unitPrice": "12",
+      "particular": "Biriyani",
+      "totalPrice": 24
     }
   ]
 }

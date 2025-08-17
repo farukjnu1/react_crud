@@ -150,7 +150,7 @@ function Sale() {
 
       {isForm && (
         <div style={{ marginTop: '10px', padding: '10px', background: '#eee' }}>
-          <h2>Save Sales</h2>
+          <h2 className="text-primary">Save Sales</h2>
           <table>
             <tbody>
               <tr>
@@ -159,7 +159,7 @@ function Sale() {
                 <input
                       value={customerName}
                       onChange={(e) => { setCustomerName(e.target.value); editingSale ? updateSale() : addSale() }}
-                      placeholder="Enter customer name"
+                      placeholder="Enter customer name" className='form-control'
                     />
               </td>
             </tr>
@@ -169,22 +169,22 @@ function Sale() {
                 <input
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
-                      placeholder="Enter description"
+                      placeholder="Enter description" className='form-control'
                     />
               </td>
             </tr>
             <tr>
               <td></td>
               <td>
-                <button onClick={editingSale ? updateSale : addSale}>
-                      {editingSale ? 'Save changes' : 'Save'}
-                    </button>
+                <button onClick={editingSale ? updateSale : addSale} className={editingSale ? "btn btn-secondary" : "btn btn-primary"}>
+                  {editingSale ? 'Save changes' : 'Save'}
+                </button>
               </td>
             </tr>
             </tbody>
             
           </table>
-          <table border={1}>
+          <table className='table table-bordered'>
             <thead>
               <tr>
                 <th>Unit Price</th>
@@ -226,7 +226,7 @@ function Sale() {
                     />
               </td>
               <td>
-                <button onClick={addSaleDetail}>Add</button>
+                <button onClick={addSaleDetail} className='btn btn-success'>Add</button>
               </td>
             </tr>
             {saleDetails.map((u) => (
@@ -248,7 +248,7 @@ function Sale() {
       {!isForm && (
         <div style={{ marginTop: '10px', padding: '10px'}}>
           <h2>List of Sales</h2>
-          <table border={1} cellPadding={6}>
+          <table className='table table-bordered'>
             <thead>
               <tr>
                 <th>Customer</th>
@@ -270,10 +270,10 @@ function Sale() {
                   setDescription(u.description);
                   getBySaleDetail(u.saleId);
                   setIsForm(true);
-                  }}>Edit</button>
+                  }} className='btn btn-success'>Edit</button>
                 </td>
                 <td>
-                  <button onClick={() => deleteSale(u.id)}>Delete</button>
+                  <button onClick={() => deleteSale(u.id)} className='btn btn-danger'>Delete</button>
                 </td>
               </tr>
             ))}
